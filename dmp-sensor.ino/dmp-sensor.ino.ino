@@ -46,7 +46,7 @@ void setup()
     Wire.setClock(400000); // 400kHz I2C clock. Comment this line if having compilation difficulties
 
     // initialize serial communication
-    Serial.begin(38400);
+    Serial.begin(115200);
     while (!Serial); // wait for Leonardo enumeration
 
     // initialize device
@@ -125,12 +125,19 @@ void loop()
         
         // ypr should be called yrp due to sensor orientation
         // originally ypr[x] * 180 / M_PI
+        String outPut = "";
+        outPut.concat(String(ypr[0]));
+        outPut.concat("|");
+        outPut.concat(String(ypr[1]));
+        outPut.concat("|");
+        outPut.concat(String(ypr[2]));
+        Serial.println(outPut);
         
-        Serial.print(ypr[0]);
-        Serial.print("\t");
-        Serial.print(ypr[1]);
-        Serial.print("\t");
-        Serial.println(ypr[2]);
+//        Serial.print(String(ypr[0]));
+//        Serial.print("\t");
+//        Serial.print(String(ypr[1]));
+//        Serial.print("\t");
+//        Serial.println(String(ypr[2]));
 
     }
 }
