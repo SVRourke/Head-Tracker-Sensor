@@ -122,13 +122,15 @@ void loop()
         mpu.dmpGetQuaternion(&q, fifoBuffer);
         mpu.dmpGetGravity(&gravity, &q);
         mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-//
-//        Serial.print(ypr[0] * 180 / M_PI);
-//        Serial.print("\t");
-//        Serial.print(ypr[1] * 180 / M_PI);
-//        Serial.print("\t");
-//        Serial.println(ypr[2] * 180 / M_PI);
+        
+        // ypr should be called yrp due to sensor orientation
+        // originally ypr[x] * 180 / M_PI
+        
+        Serial.print(ypr[0]);
+        Serial.print("\t");
+        Serial.print(ypr[1]);
+        Serial.print("\t");
+        Serial.println(ypr[2]);
 
-        Serial.println(ypr[0] * 180 / M_PI, ypr[1] * 180 / M_PI, ypr[2] * 180 / M_PI);
     }
 }
