@@ -126,11 +126,11 @@ void loop()
         // ypr should be called yrp due to sensor orientation
         // originally ypr[x] * 180 / M_PI
         String outPut = "";
-        outPut.concat(String(ypr[0]));
+        outPut.concat(String(ypr[0] * 10000));
         outPut.concat("|");
-        outPut.concat(String(ypr[1]));
+        outPut.concat(String(ypr[1] * 10000));
         outPut.concat("|");
-        outPut.concat(String(ypr[2]));
+        outPut.concat(String(ypr[2] * 10000));
         Serial.println(outPut);
         
 //        Serial.print(String(ypr[0]));
